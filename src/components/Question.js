@@ -4,13 +4,8 @@ function Question() {
   return (
     <>
       <VStack spacing={5}>
-        <Box
-          textStyle={"bold"}
-          color="black"
-          width={"100%"}
-          textAlign={"center"}
-        >
-          <Text>
+        <Box width={"100%"}>
+          <Text fontSize={"1.5rem"} fontFamily={"body"} fontWeight={"bold"}>
             Who starred as Bruce Wayne and Batman in Tim Burton&#039;s 1989
             movie &quot;Batman&quot;?
           </Text>
@@ -20,7 +15,7 @@ function Question() {
             <Button
               border={"2px"}
               borderColor={"gray.600"}
-              w={"75%"}
+              w={"95%"}
               colorScheme="blackAlpha"
               p={8}
             >
@@ -29,7 +24,7 @@ function Question() {
             <Button
               border={"2px"}
               borderColor={"gray.600"}
-              w={"75%"}
+              w={"95%"}
               colorScheme="blackAlpha"
               p={8}
             >
@@ -38,7 +33,7 @@ function Question() {
             <Button
               border={"2px"}
               borderColor={"gray.600"}
-              w={"75%"}
+              w={"95%"}
               colorScheme="blackAlpha"
               p={8}
             >
@@ -47,7 +42,7 @@ function Question() {
             <Button
               border={"2px"}
               borderColor={"gray.600"}
-              w={"75%"}
+              w={"95%"}
               colorScheme="blackAlpha"
               p={8}
             >
