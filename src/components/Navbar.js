@@ -3,7 +3,7 @@ import { Box, LinkBox, VStack } from "@chakra-ui/react";
 function Navbar() {
   return (
     <>
-      <VStack width={"100%"}>
+      <VStack width={"100%"} mb={5}>
         <Box
           color="black"
           fontSize={"8vw"}
