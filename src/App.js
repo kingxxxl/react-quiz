@@ -3,7 +3,7 @@ import QuizPic from "./components/bg-quiz.png";
 import { Box } from "@chakra-ui/react";
 import StarterPage from "./pages/StarterPage";
 import { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import PageNotFound from "./pages/PageNotFound";
 import QuizPage from "./pages/QuizPage";
 
@@ -14,6 +14,7 @@ function App() {
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [error, setError] = useState(false);
+  const navigate = useNavigate();
 
   const catClick = (e) => {
     setCategory(e.value);
@@ -27,6 +28,7 @@ function App() {
     } else {
       setError(false);
       await get10Question(category, difficulty);
+      navigate("/quiz");
     }
   };
 
@@ -60,7 +62,10 @@ function App() {
               />
             }
           />
-          <Route path="/quiz" element={<QuizPage />} />
+          <Route
+            path="/quiz"
+            element={<QuizPage name={name} questions={questions} />}
+          />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Box>

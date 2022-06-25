@@ -10,32 +10,101 @@ const CatAndDiff = ({ catClick, diffClick }) => {
           placeholder={"Select Category"}
           options={[
             {
-              label: "General Knowledge",
               value: 9,
+              label: "General Knowledge",
             },
-            { label: "Books", value: 10 },
-            { label: "Films", value: 11 },
-            { label: "Music", value: 12 },
-            { label: "Musicals and Theaters", value: 13 },
-            { label: "Television", value: 14 },
-            { label: "Video Games", value: 15 },
-            { label: "Board Games", value: 16 },
-            { label: "Science and Nature", value: 17 },
-            { label: "Computer", value: 18 },
-            { label: "Mathematics", value: 19 },
-            { label: "Mythology", value: 20 },
-            { label: "Sports", value: 21 },
-            { label: "Geography", value: 22 },
-            { label: "History", value: 23 },
-            { label: "Politics", value: 24 },
-            { label: "Art", value: 25 },
-            { label: "Celebrities", value: 26 },
-            { label: "Animals", value: 27 },
-            { label: "Vehicles", value: 28 },
-            { label: "Comics", value: 29 },
-            { label: "Gadgets", value: 30 },
-            { label: "Japanese Anime", value: 31 },
-            { label: "Cartoon and Animations", value: 32 },
+            {
+              value: 10,
+              label: "Entertainment: Books",
+            },
+            {
+              value: 11,
+              label: "Entertainment: Film",
+            },
+            {
+              value: 12,
+              label: "Entertainment: Music",
+            },
+            {
+              value: 13,
+              label: "Entertainment: Musicals & Theatres",
+            },
+            {
+              value: 14,
+              label: "Entertainment: Television",
+            },
+            {
+              value: 15,
+              label: "Entertainment: Vvalueeo Games",
+            },
+            {
+              value: 16,
+              label: "Entertainment: Board Games",
+            },
+            {
+              value: 17,
+              label: "Science & Nature",
+            },
+            {
+              value: 18,
+              label: "Science: Computers",
+            },
+            {
+              value: 19,
+              label: "Science: Mathematics",
+            },
+            {
+              value: 20,
+              label: "Mythology",
+            },
+            {
+              value: 21,
+              label: "Sports",
+            },
+            {
+              value: 22,
+              label: "Geography",
+            },
+            {
+              value: 23,
+              label: "History",
+            },
+            {
+              value: 24,
+              label: "Politics",
+            },
+            {
+              value: 25,
+              label: "Art",
+            },
+            {
+              value: 26,
+              label: "Celebrities",
+            },
+            {
+              value: 27,
+              label: "Animals",
+            },
+            {
+              value: 28,
+              label: "Vehicles",
+            },
+            {
+              value: 29,
+              label: "Entertainment: Comics",
+            },
+            {
+              value: 30,
+              label: "Science: Gadgets",
+            },
+            {
+              value: 31,
+              label: "Entertainment: Japanese Anime & Manga",
+            },
+            {
+              value: 32,
+              label: "Entertainment: Cartoon & Animations",
+            },
           ]}
         ></Select>
       </Box>

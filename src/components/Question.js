@@ -1,57 +1,86 @@
-import { Box, Button, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, HStack, Text, VStack } from "@chakra-ui/react";
+import { useState } from "react";
 
-function Question() {
+function Question({ questions }) {
+  const entities = {
+    "&#039;": "'",
+    "&quot;": '"',
+    // add more if needed
+  };
+
+  const [count, setCount] = useState(0);
+  const nextQuestion = () => {
+    if (count >= 9) {
+      setCount(0);
+    } else {
+      setCount(count + 1);
+    }
+  };
   return (
     <>
-      <VStack spacing={5}>
-        <Box width={"100%"}>
-          <Text fontSize={"1.5rem"} fontFamily={"body"} fontWeight={"bold"}>
-            Who starred as Bruce Wayne and Batman in Tim Burton&#039;s 1989
-            movie &quot;Batman&quot;?
-          </Text>
-        </Box>
-        <Box width={"100%"}>
-          <VStack>
-            <Button
-              border={"2px"}
-              borderColor={"gray.600"}
-              w={"95%"}
-              colorScheme="blackAlpha"
-              p={8}
-            >
-              Keaton
-            </Button>
-            <Button
-              border={"2px"}
-              borderColor={"gray.600"}
-              w={"95%"}
-              colorScheme="blackAlpha"
-              p={8}
-            >
-              Adam
-            </Button>
-            <Button
-              border={"2px"}
-              borderColor={"gray.600"}
-              w={"95%"}
-              colorScheme="blackAlpha"
-              p={8}
-            >
-              George
-            </Button>
-            <Button
-              border={"2px"}
-              borderColor={"gray.600"}
-              w={"95%"}
-              colorScheme="blackAlpha"
-              p={8}
-            >
-              Kilmer
-            </Button>
-          </VStack>
-        </Box>
+      <VStack width={"100%"} textTransform={"uppercase"}>
+        <Box>ENTERTAINMENT: cartoon and Animation </Box>
+        <Box>SCORE : 0</Box>
+        <Box fontSize={"2rem"}>Question {count}:</Box>
       </VStack>
-      {/*<Box m={2}>Tomato</Box>*/}
+      <Box border={"2px"} borderColor={"gray"} p={2} m={2} width={"95%"}>
+        <VStack spacing={5}>
+          <Box width={"100%"}>
+            <Text fontSize={"1rem"} fontWeight={"bold"}>
+              {questions[count].question
+                .replace(/&quot;/g, '"')
+                .replace(/&#039;/g, "'")
+                .replace(/&euml;/g, "e")}
+            </Text>
+          </Box>
+          <Box width={"100%"}>
+            <VStack>
+              <Button
+                border={"2px"}
+                borderColor={"gray.600"}
+                w={"95%"}
+                colorScheme="blackAlpha"
+                p={8}
+              >
+                {questions[count].correct_answer
+                  .replace(/&quot;/g, '"')
+                  .replace(/&#039;/g, "'")
+                  .replace(/&euml;/g, "e")}
+              </Button>
+
+              {questions[count].incorrect_answers.map((answer) => (
+                <Button
+                  border={"2px"}
+                  borderColor={"gray.600"}
+                  w={"95%"}
+                  colorScheme="blackAlpha"
+                  p={8}
+                >
+                  {answer
+                    .replace(/&quot;/g, '"')
+                    .replace(/&#039;/g, "'")
+                    .replace(/&euml;/g, "e")}
+                </Button>
+              ))}
+            </VStack>
+          </Box>
+        </VStack>
+
+        <HStack my={5}>
+          <Button colorScheme={"white"} bg={"#f50057"} w={"50%"} p={9}>
+            QUIT
+          </Button>
+          <Button
+            onClick={nextQuestion}
+            colorScheme={"white"}
+            bg={"#3f51b5"}
+            w={"50%"}
+            p={9}
+          >
+            NEXT QUESTION
+          </Button>
+        </HStack>
+      </Box>
     </>
   );
 }
