@@ -1,4 +1,4 @@
-import { Box, Button, List, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Text, VStack } from "@chakra-ui/react";
 
 function Question() {
   return (
