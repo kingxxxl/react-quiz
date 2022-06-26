@@ -65,7 +65,14 @@ function App() {
           />
           <Route
             path="/quiz"
-            element={<QuizPage name={name} questions={questions} />}
+            element={
+              <QuizPage
+                name={name}
+                questions={questions}
+                score={score}
+                setScore={setScore}
+              />
+            }
           />
           <Route path="*" element={<PageNotFound />} />
           <Route path="/result" element={<Result score={{ score }} />} />

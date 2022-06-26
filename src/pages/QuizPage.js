@@ -14,7 +14,7 @@ function QuizPage({ name, questions, score, setScore, setQuestions }) {
           Welcome {name}
         </Box>
 
-        <Question questions={questions} />
+        <Question questions={questions} score={score} setScore={setScore} />
       </VStack>
     </>
   );
