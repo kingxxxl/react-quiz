@@ -1,15 +1,63 @@
 import { Box, Button, HStack, Text, VStack } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Question({ questions }) {
+  console.log(questions);
+  const [options, setOptions] = useState([]);
   const [count, setCount] = useState(0);
+  const [answer, setAnswer] = useState("");
+
+  const whatever = useNavigate();
+
+  function shuffle(array) {
+    let currentIndex = array.length,
+      randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex !== 0) {
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      //
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+
+    return array;
+  }
+  useEffect(() => {
+    const getOption = async () => {
+      let tem = [
+        questions[count].correct_answer,
+        questions[count].incorrect_answers[0],
+        questions[count].incorrect_answers[1],
+        questions[count].incorrect_answers[2],
+      ];
+      shuffle(tem);
+      setOptions([...tem]);
+    };
+    getOption();
+    console.log(options);
+    // shuffle(options);
+    // console.log("option are: " + options);
+    // console.log("Answer is : " + answer);
+    //
+  }, [count]);
+
   const nextQuestion = () => {
+    setOptions([]);
     if (count >= 9) {
-      setCount(0);
+      whatever("/result");
     } else {
       setCount(count + 1);
     }
   };
+
   return (
     <>
       <VStack width={"100%"} textTransform={"uppercase"}>
@@ -30,21 +78,7 @@ function Question({ questions }) {
           </Box>
           <Box width={"100%"}>
             <VStack>
-              <Button
-                border={"2px"}
-                borderColor={"gray.600"}
-                w={"100%"}
-                colorScheme="blackAlpha"
-                p={8}
-              >
-                {questions[count].correct_answer
-                  .replace(/&quot;/g, '"')
-                  .replace(/&#039;/g, "'")
-                  .replace(/&euml;/g, "e")
-                  .replace(/&amp;/g, "&")}
-              </Button>
-
-              {questions[count].incorrect_answers.map((answer) => (
+              {options.map((answer) => (
                 <Button
                   border={"2px"}
                   borderColor={"gray.600"}

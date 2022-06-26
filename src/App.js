@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import PageNotFound from "./pages/PageNotFound";
 import QuizPage from "./pages/QuizPage";
+import Result from "./pages/Result";
 
 function App() {
   const [questions, setQuestions] = useState();
@@ -67,6 +68,7 @@ function App() {
             element={<QuizPage name={name} questions={questions} />}
           />
           <Route path="*" element={<PageNotFound />} />
+          <Route path="/result" element={<Result score={{ score }} />} />
         </Routes>
       </Box>
     </>
