@@ -17,10 +17,10 @@ function Question({ questions }) {
         <Box>SCORE : 0</Box>
         <Box fontSize={"2rem"}>Question {count}:</Box>
       </VStack>
-      <Box border={"2px"} borderColor={"gray"} p={2} m={2} width={"95%"}>
+      <Box border={"2px"} borderColor={"gray"} p={2} m={2} width={"100%"}>
         <VStack spacing={5}>
           <Box width={"100%"}>
-            <Text fontSize={"1rem"} fontWeight={"bold"}>
+            <Text fontSize={"1rem"} fontWeight={"bold"} textAlign={"center"}>
               {questions[count].question
                 .replace(/&quot;/g, '"')
                 .replace(/&#039;/g, "'")
@@ -33,7 +33,7 @@ function Question({ questions }) {
               <Button
                 border={"2px"}
                 borderColor={"gray.600"}
-                w={"95%"}
+                w={"100%"}
                 colorScheme="blackAlpha"
                 p={8}
               >
@@ -48,7 +48,7 @@ function Question({ questions }) {
                 <Button
                   border={"2px"}
                   borderColor={"gray.600"}
-                  w={"95%"}
+                  w={"100%"}
                   colorScheme="blackAlpha"
                   p={8}
                 >

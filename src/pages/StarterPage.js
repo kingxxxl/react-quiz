@@ -5,7 +5,7 @@ function StarterPage({ error, setName, startQuiz, catClick, diffClick }) {
   return (
     <>
       <VStack alignItems={"center"} width={"100%"} spacing={9}>
-        <Image src={QuizPic} width={"85%"} />
+        <Image src={QuizPic} width={"30%"} height={"40%"} />
         {error && (
           <Box
             bg={"red"}
