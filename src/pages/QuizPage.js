@@ -1,7 +1,5 @@
-import { Box, Input, VStack } from "@chakra-ui/react";
-import QuizInfo from "../components/QuizInfo";
+import { Box, VStack } from "@chakra-ui/react";
 import Question from "../components/Question";
-import QuestionNav from "../components/QuestionNav";
 
 function QuizPage({ name, questions, score, setScore, setQuestions }) {
   return (

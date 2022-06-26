@@ -2,12 +2,6 @@ import { Box, Button, HStack, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 
 function Question({ questions }) {
-  const entities = {
-    "&#039;": "'",
-    "&quot;": '"',
-    // add more if needed
-  };
-
   const [count, setCount] = useState(0);
   const nextQuestion = () => {
     if (count >= 9) {
@@ -30,7 +24,8 @@ function Question({ questions }) {
               {questions[count].question
                 .replace(/&quot;/g, '"')
                 .replace(/&#039;/g, "'")
-                .replace(/&euml;/g, "e")}
+                .replace(/&euml;/g, "e")
+                .replace(/&amp;/g, "&")}
             </Text>
           </Box>
           <Box width={"100%"}>
@@ -45,7 +40,8 @@ function Question({ questions }) {
                 {questions[count].correct_answer
                   .replace(/&quot;/g, '"')
                   .replace(/&#039;/g, "'")
-                  .replace(/&euml;/g, "e")}
+                  .replace(/&euml;/g, "e")
+                  .replace(/&amp;/g, "&")}
               </Button>
 
               {questions[count].incorrect_answers.map((answer) => (
@@ -59,7 +55,8 @@ function Question({ questions }) {
                   {answer
                     .replace(/&quot;/g, '"')
                     .replace(/&#039;/g, "'")
-                    .replace(/&euml;/g, "e")}
+                    .replace(/&euml;/g, "e")
+                    .replace(/&amp;/g, "&")}
                 </Button>
               ))}
             </VStack>

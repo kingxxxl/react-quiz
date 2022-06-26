@@ -38,7 +38,7 @@ function StarterPage({ error, setName, startQuiz, catClick, diffClick }) {
           }
           onClick={startQuiz}
         >
-          START QUIZE{" "}
+          START QUIZE
         </Button>
       </VStack>
     </>
