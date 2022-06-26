@@ -10,11 +10,12 @@ import Result from "./pages/Result";
 
 function App() {
   const [questions, setQuestions] = useState();
-  const [score, setScore] = useState(0);
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [error, setError] = useState(false);
+  const [score, setScore] = useState(0);
+
   const navigate = useNavigate();
 
   const catClick = (e) => {
@@ -75,7 +76,7 @@ function App() {
             }
           />
           <Route path="*" element={<PageNotFound />} />
-          <Route path="/result" element={<Result score={{ score }} />} />
+          <Route path="/result" element={<Result score={score} />} />
         </Routes>
       </Box>
     </>

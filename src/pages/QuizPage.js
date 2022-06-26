@@ -1,7 +1,7 @@
 import { Box, VStack } from "@chakra-ui/react";
 import Question from "../components/Question";
 
-function QuizPage({ name, questions, score, setScore, setQuestions }) {
+function QuizPage({ name, questions, score, setScore }) {
   return (
     <>
       <VStack width={"100%"} height={"100vh"}>

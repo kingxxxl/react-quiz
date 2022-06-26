@@ -1,14 +1,13 @@
 import { Box, Button, HStack, Text, VStack } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "../css.css";
 
 function Question({ questions, setScore, score }) {
   const [options, setOptions] = useState([]);
   const [count, setCount] = useState(0);
   const [answer, setAnswer] = useState("");
   const [isAnswered, setIsAnswered] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
-
   const navigate = useNavigate();
 
   function shuffle(array) {
@@ -56,17 +55,24 @@ function Question({ questions, setScore, score }) {
     } else {
       setCount(count + 1);
       setIsAnswered(false);
-      setIsCorrect(false);
     }
   };
 
-  const checkAnswer = (userAnswer) => {
-    console.log("users answer is: " + userAnswer);
-    setIsAnswered(true);
+  const clickkAnswer = (userAnswer) => {
+    console.log("user user is: " + userAnswer);
+    console.log("answer is: " + answer);
     if (userAnswer === answer) {
-      setIsCorrect(true);
+      console.log("correct");
       setScore(score + 1);
-      console.log(score);
+    }
+
+    setIsAnswered(true);
+  };
+
+  const checkAnswer = (userAnswer) => {
+    console.log("answer is: " + answer);
+    if (userAnswer === answer && isAnswered) {
+      return `good`;
     }
   };
 
@@ -75,7 +81,7 @@ function Question({ questions, setScore, score }) {
       <VStack width={"100%"} textTransform={"uppercase"}>
         <Box>ENTERTAINMENT: cartoon and Animation </Box>
         <Box>SCORE : {score}</Box>
-        <Box fontSize={"2rem"}>Question {count}:</Box>
+        <Box fontSize={"2rem"}>Question {count + 1}:</Box>
       </VStack>
       <Box border={"2px"} borderColor={"gray"} p={2} m={2} width={"100%"}>
         <VStack spacing={5}>
@@ -92,12 +98,14 @@ function Question({ questions, setScore, score }) {
             <VStack>
               {options.map((answers) => (
                 <Button
+                  className={` ${checkAnswer(answers)} `}
                   border={"2px"}
                   borderColor="gray.600"
                   w={"100%"}
-                  colorScheme="blackAlpha"
+                  colorScheme={"blackAlpha"}
+                  key={answers}
                   p={8}
-                  onClick={() => checkAnswer(answers)}
+                  onClick={() => clickkAnswer(answers)}
                   isDisabled={isAnswered}
                 >
                   {answers
