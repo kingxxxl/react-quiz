@@ -1,7 +1,14 @@
 import { Text } from "@chakra-ui/react";
 
 function Result({ score }) {
-  return <Text> The result {score}</Text>;
+  return (
+    <>
+      <Text alignSelf={"center"} fontSize={"1.5rem"} as="kbd">
+        {" "}
+        The Result: {score} Points!
+      </Text>
+    </>
+  );
 }
 
 export default Result;
