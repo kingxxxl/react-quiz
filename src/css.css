@@ -1,8 +1,11 @@
-
 .good{
     background-color:darkgreen !important;
     color: black !important;
 }
 
+.bad{
+    background-color:red !important;
+    color: black !important;
+}
 
 

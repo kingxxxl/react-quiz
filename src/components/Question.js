@@ -8,6 +8,8 @@ function Question({ questions, setScore, score }) {
   const [count, setCount] = useState(0);
   const [answer, setAnswer] = useState("");
   const [isAnswered, setIsAnswered] = useState(false);
+  const [userAnswer, setUserAnswer] = useState("");
+  const [isCorrect, setIsCorrect] = useState(false);
   const navigate = useNavigate();
 
   function shuffle(array) {
@@ -55,24 +57,33 @@ function Question({ questions, setScore, score }) {
     } else {
       setCount(count + 1);
       setIsAnswered(false);
+      setIsCorrect(false);
+      setUserAnswer("");
     }
   };
 
   const clickkAnswer = (userAnswer) => {
+    setUserAnswer(userAnswer);
     console.log("user user is: " + userAnswer);
     console.log("answer is: " + answer);
+    console.log("setIsCorrect is: " + isCorrect);
     if (userAnswer === answer) {
       console.log("correct");
       setScore(score + 1);
+      setIsCorrect(true);
     }
 
     setIsAnswered(true);
   };
 
-  const checkAnswer = (userAnswer) => {
+  const checkAnswer = (userAnswerr) => {
     console.log("answer is: " + answer);
-    if (userAnswer === answer && isAnswered) {
+    if (userAnswerr === answer && isAnswered) {
       return `good`;
+    } else if (userAnswer === userAnswerr && isAnswered && !isCorrect) {
+      return `bad`;
+    } else {
+      return ``;
     }
   };
 
